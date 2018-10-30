@@ -106,7 +106,7 @@
         public function Activate() {
             $Password = GetValue($this->GetIDForIdent("Password"));
             $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
-            $Status = GetValue($this->GetIDForIdent("State"));
+            $State = GetValue($this->GetIDForIdent("State"));
 
             if($Password == $NewPassword && $State == false)
             {
