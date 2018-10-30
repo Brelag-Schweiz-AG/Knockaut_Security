@@ -37,8 +37,15 @@
         			IPS_SetVariableProfileAssociation("BRELAG.Quittierung", 2, "Lebensdauer", "", -1);
         		}
 
+            // Profil für Statusanzeige
+            if(!IPS_VariableProfileExists("BRELAG.AlarmStatus")) {
+        			IPS_CreateVariableProfile("BRELAG.AlarmStatus", 0);
+        			IPS_SetVariableProfileIcon("BRELAG.AlarmStatus", "Power");
+        			IPS_SetVariableProfileAssociation("BRELAG.AlarmStatus", 0, $this->Translate("Off"), "", -1);
+        			IPS_SetVariableProfileAssociation("BRELAG.AlarmStatus", 1, $this->Translate("On"), "", -1);
+
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
-            $this->RegisterVariableBoolean("State", "Stauts", "", "0");
+            $this->RegisterVariableBoolean("State", "Stauts", "BRELAG.AlarmStatus", "0");
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
