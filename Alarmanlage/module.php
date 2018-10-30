@@ -45,7 +45,7 @@
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmStatus", 1, $this->Translate("On"), "", -1);
             }
             // Boolean für Statusanzeige der Alarmanlage, ist inaktiv!
-            $this->RegisterVariableBoolean("State", "Stauts", "BRELAG.AlarmStatus", "0");
+            $this->RegisterVariableBoolean("State", "Status", "BRELAG.AlarmStatus", "0");
 
             // Stringvariable für Passwort Eingabe um Anlage scharf bzw. unschaf zu schalten, ist aktiv!
             $this->RegisterVariableString("Password", "Passwort Eingabe", "", "1");
@@ -118,6 +118,21 @@
                 SetValue($this->GetIDForIdent("State"), false);
                 SetValue($this->GetIDForIdent("Password"), "");
               }
+
+        }
+
+        public funtion NewPassword() {
+
+          $Password = GetValue($this->GetIDForIdent("OldPassword"));
+          $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
+          $State = GetValue($this->GetIDForIdent("State"));
+
+          if($Password == $NewPassword && $State == false)
+          {
+            IPS_SetHidden($this->GetIDForIdent("NewPassword"), false);
+            IPS_Sleep(15);
+            IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
+          }
 
         }
     }
