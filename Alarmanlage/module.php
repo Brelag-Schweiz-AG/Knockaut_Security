@@ -24,7 +24,7 @@
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 0, $this->Translate("ModeOne"), "", -1);
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 1, $this->Translate("ModeTwo"), "", -1);
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 2, $this->Translate("ModeOneTwo"), "", -1);
-        			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 3, $this-Translate("ModeBell"), "", -1);
+        			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 3, $this->Translate("ModeBell"), "", -1);
         		}
 
             //Progil für Quittierung
