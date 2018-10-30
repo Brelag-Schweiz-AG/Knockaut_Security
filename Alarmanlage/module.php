@@ -131,7 +131,7 @@
           if($Password == $NewPassword && $State == false)
           {
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), false);
-            IPS_Sleep(15);
+            IPS_Sleep(15000);
             IPS_SetHidden($this->GetIDForIdent("NewPassword"), true);
           }
 
