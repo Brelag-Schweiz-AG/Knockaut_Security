@@ -1,0 +1,13 @@
+{
+    "elements":
+    [
+        { "type": "Label", "label": "Beschattung:"},
+        { "type": "SelectVariable", "name": "LightValue", "caption": "Lichtsensor" },
+        { "type": "SelectVariable", "name": "RainValue", "caption": "Regensensor" },
+        { "type": "SelectEvent", "name": "upperEventSun", "caption": "Event oben (1)" },
+        { "type": "SelectEvent", "name": "lowerEventSun", "caption": "Event unten (0)" },
+        { "type": "Label", "label": ""},
+        { "type": "Label", "label": "Wind:"},
+        { "type": "SelectVariable", "name": "WindValue", "caption": "Windsensor" }
+    ]
+}
