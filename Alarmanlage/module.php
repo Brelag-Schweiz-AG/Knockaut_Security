@@ -19,7 +19,7 @@
             //Profil für Modusauswahl
             if (!IPS_VariableProfileExists("BRELAG.AlarmModus")) {
         			IPS_CreateVariableProfile("BRELAG.AlarmModus", 1);
-        			IPS_SetVariableProfileValues("BRELAG.AlarmModus", 0, 4, 0);
+        			IPS_SetVariableProfileValues("BRELAG.AlarmModus", 0, 5, 0);
         			IPS_SetVariableProfileIcon("BRELAG.AlarmModus", "IPS");
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 0, $this->Translate("ModeOne"), "", -1);
         			IPS_SetVariableProfileAssociation("BRELAG.AlarmModus", 1, $this->Translate("ModeTwo"), "", -1);
@@ -74,6 +74,7 @@
                     case "Password":
                     //Neuen Wert in die Statusvariable schreiben
                       SetValue($this->GetIDForIdent($Ident), $Value);
+                      $this->Activate();
                     break;
                     case "Mode":
                       //Neuen Wert in die Statusvariable schreiben
@@ -102,8 +103,21 @@
         * ABC_MeineErsteEigeneFunktion($id);
         *
         */
-        public function MeineErsteEigeneFunktion() {
-            // Selbsterstellter Code
+        public function Activate() {
+            $Password = GetValue($this->GetIDForIdent("Password"));
+            $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
+            $Status = GetValue($this->GetIDForIdent("State"));
+
+            if($Password == $NewPassword && $State == false)
+            {
+                SetValue($this->GetIDForIdent("State"), true);
+                SetValue($this->GetIDForIdent("Password"), "");
+            } elseif($Password == $NewPassword && $State == true)
+              {
+                SetValue($this->GetIDForIdent("State"), false);
+                SetValue($this->GetIDForIdent("Password"), "");
+              }
+
         }
     }
 ?>
