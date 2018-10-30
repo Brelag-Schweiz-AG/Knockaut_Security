@@ -50,7 +50,7 @@
 
             // Integervariable für Auswahl der Quittierungen, ist aktiv!
             $this->RegisterVariableInteger("Quittierung", "Sabotage", "BRELAG.Quittierung", "3");
-            $this->EnableAction("Quittierung")
+            $this->EnableAction("Quittierung");
 
             // Stringvariable für ändern des Passworts, Variable "Neues Passwort" verborgen aber beide aktiv!
             $this->RegisterVariableString("OldPassword", "Aktuelles Passwort", "", "4");
