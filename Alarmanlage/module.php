@@ -88,6 +88,7 @@
                     case "OldPassword":
                         //Neuen Wert in die Statusvariable schreiben
                         SetValue($this->GetIDForIdent($Ident), $Value);
+                        $this->NewPassword();
                     break;
                     case "NewPassword":
                         //Neuen Wert in die Statusvariable schreiben
@@ -121,7 +122,7 @@
 
         }
 
-        public funtion NewPassword() {
+        public function NewPassword() {
 
           $Password = GetValue($this->GetIDForIdent("OldPassword"));
           $NewPassword = GetValue($this->GetIDForIdent("NewPassword"));
