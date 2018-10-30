@@ -66,11 +66,34 @@
             $this->EnableAction("NewPassword");
         }
 
+
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
-        public function ApplyChanges() {
-            // Diese Zeile nicht löschen
-            parent::ApplyChanges();
-        }
+        public function RequestAction($Ident, $Value) {
+
+              switch($Ident) {
+                    case "Password":
+                    //Neuen Wert in die Statusvariable schreiben
+                      SetValue($this->GetIDForIdent($Ident), $Value);
+                    break;
+                    case "Mode":
+                      //Neuen Wert in die Statusvariable schreiben
+                      SetValue($this->GetIDForIdent($Ident), $Value);
+                    break;
+                    case "Quittierung":
+                      //Neuen Wert in die Statusvariable schreiben
+                        SetValue($this->GetIDForIdent($Ident), $Value);
+                    break;
+                    case "OldPassword":
+                        //Neuen Wert in die Statusvariable schreiben
+                        SetValue($this->GetIDForIdent($Ident), $Value);
+                    break;
+                    case "NewPassword":
+                        //Neuen Wert in die Statusvariable schreiben
+                        SetValue($this->GetIDForIdent($Ident), $Value);
+                    break;
+                    }
+
+      }
 
         /**
         * Die folgenden Funktionen stehen automatisch zur Verfügung, wenn das Modul über die "Module Control" eingefügt wurden.
